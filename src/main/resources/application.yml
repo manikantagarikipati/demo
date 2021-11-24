@@ -1,0 +1,27 @@
+micronaut:
+  application:
+    name: demo
+
+datasources:
+  default:
+    url: jdbc:postgresql://localhost:5432/airportdb?currentSchema=public?user=docker&password=docker
+    driverClassName: org.postgresql.Driver
+    username: docker
+    password: docker
+    schema-generate: CREATE_DROP
+    dialect: POSTGRES
+
+jpa:
+  default:
+    packages-to-scan:
+      - 'com.geekmk.entity'
+    entity-scan:
+      packages: 'com.geekmk.entity'
+    properties:
+      hibernate:
+      hbm2ddl:
+        auto: update
+      show_sql: true
+
+application:
+  max: 50
